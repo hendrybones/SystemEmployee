@@ -14,30 +14,30 @@ import java.util.List;
 
 @Controller
 public class ManagerController {
-    @Autowired
-    private ManagerService managerService;
-
-    @GetMapping("/")
-    public String viewAdminPage(Model model){
-        List<Manager> listManager=managerService.listAll();
-        model.addAttribute("listManager",listManager);
-        System.out.print("Get/ ");
-        return "admin";
-    }
-    @GetMapping("new")
-    public String add(Model model){
-        model.addAttribute("Manager", new Manager());
-        return "newManager";
-    }
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String saveManager(@ModelAttribute("manager") Manager manager){
-        managerService.save(manager);
-        return "redirect/";
-    }
-    @RequestMapping("/edit/{id}")
-    public ModelAndView showEditAminPage(@PathVariable(name="id") Long id){
-        ModelAndView mav=new ModelAndView("new");
-        Manager manager=managerService.get(id);
-        return mav;
-    }
+//    @Autowired
+//    private ManagerService managerService;
+//
+//    @GetMapping("/")
+//    public String viewAdminPage(Model model){
+//        List<Manager> listManager=managerService.listAll();
+//        model.addAttribute("listManager",listManager);
+//        System.out.print("Get/ ");
+//        return "index";
+//    }
+//    @GetMapping("new")
+//    public String add(Model model){
+//        model.addAttribute("Manager", new Manager());
+//        return "newManager";
+//    }
+//    @RequestMapping(value = "/save", method = RequestMethod.POST)
+//    public String saveManager(@ModelAttribute("manager") Manager manager){
+//        managerService.save(manager);
+//        return "redirect/";
+//    }
+//    @RequestMapping("/edit/{id}")
+//    public ModelAndView showEditAminPage(@PathVariable(name="id") Long id){
+//        ModelAndView mav=new ModelAndView("new");
+//        Manager manager=managerService.get(id);
+//        return mav;
+//    }
 }

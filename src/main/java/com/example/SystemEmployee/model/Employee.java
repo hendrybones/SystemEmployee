@@ -10,7 +10,7 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String EmployeeName;
+    private String employeeName;
     private String jobTitle;
     private double salary;
 
@@ -21,7 +21,7 @@ public class Employee {
 
     public Employee(Long id, String employeeName, String jobTitle, double salary) {
         this.id = id;
-        EmployeeName = employeeName;
+        this.employeeName = employeeName;
         this.jobTitle = jobTitle;
         this.salary = salary;
     }
@@ -35,11 +35,11 @@ public class Employee {
     }
 
     public String getEmployeeName() {
-        return EmployeeName;
+        return employeeName;
     }
 
     public void setEmployeeName(String employeeName) {
-        EmployeeName = employeeName;
+        this.employeeName = employeeName;
     }
 
     public String getJobTitle() {

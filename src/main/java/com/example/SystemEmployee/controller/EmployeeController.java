@@ -15,24 +15,24 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
-    @GetMapping("/{id}")
+    @GetMapping("/")
     public String viewHomePage(Model model){
         List<Employee> listEmployee=employeeService.listAll();
         model.addAttribute("listEmployee",listEmployee);
-        System.out.print("Get/{id}");
+        System.out.print("Get/");
         return "index";
     }
-    @GetMapping("new{id}")
+    @GetMapping("/new")
     public String add(Model model){
-        model.addAttribute("Employee", new Employee());
+        model.addAttribute("employee", new Employee());
         return "new";
     }
-    @RequestMapping(value = "/save{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String saveEmployee(@ModelAttribute("employee") Employee employee){
         employeeService.save(employee);
-        return "redirect/";
+        return "redirect:/";
     }
-    @RequestMapping("/edit{id}")
+    @RequestMapping("/edit/{id}")
     public ModelAndView showEditEmployeePage(@PathVariable(name = "id") Long id){
         ModelAndView mav=new ModelAndView("new");
         Employee employee=employeeService.get(id);
